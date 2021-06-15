@@ -1,15 +1,19 @@
+<!--Res = 272x272-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <title>Anti MCreator</title>
 </head>
 <body>
-    <i class="fas fa-file-upload">
-        <h1 class="a">Glissez votre fichier ici</h1>
-    </i>
+<div class="drop-zone">
+    <i class="fas fa-file-upload">&nbsp;</i>
+    <span class="drop-zone__prompt">Drop your mod here to upload</span>
+    <input class="drop-zone__input" name="modFile" type="file" accept="application/java-archive">
+</div>
+<script src="./scripts/main.js"></script>
 </body>
 </html>
