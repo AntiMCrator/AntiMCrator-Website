@@ -54,5 +54,22 @@ function updateThumbnail(dropZoneElement, file) {
     thumbnailElement.dataset.label = file.name;
     thumbnailElement.style.backgroundImage = "url(./assets/jar.svg)"
 
-    //Todo: Send http Request
+    //WIP
+    sendRequest(file);
+}
+
+function sendRequest(mod) {
+    const file = File.valueOf(mod);
+    const xhr = new XMLHttpRequest();
+    const url = "http://minemobs.galaxyfight.fr:8001/upload";
+    const data = new FormData();
+    data.set(file.name, file);
+    xhr.addEventListener("readystatechange", () => {
+        if(this.readyState === 4) {
+            console.log(this.responseText);
+        }
+    });
+
+    xhr.open("POST", url);
+    xhr.send(data);
 }
