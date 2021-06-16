@@ -60,16 +60,18 @@ function updateThumbnail(dropZoneElement, file) {
 
 function sendRequest(mod) {
     const file = File.valueOf(mod);
-    const xhr = new XMLHttpRequest();
-    const url = "http://minemobs.galaxyfight.fr:8001/upload";
-    const data = new FormData();
-    data.set(file.name, file);
-    xhr.addEventListener("readystatechange", () => {
-        if(this.readyState === 4) {
-            console.log(this.responseText);
-        }
-    });
+    console.log(file)
+    const formdata = new FormData();
+    formdata.set(file.name, file);
 
-    xhr.open("POST", url);
-    xhr.send(data);
+    const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+
+    fetch("http://minemobs.galaxyfight.fr:8001/upload", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
